@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  kegtrack:
+    container_name: kegtrack_site
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      kegtrack_network:
+        aliases:
+          - kegtrack
+
+
+networks:
+  kegtrack_network:
+    name: kegtrack_network
