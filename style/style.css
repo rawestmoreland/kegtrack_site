@@ -1,0 +1,36 @@
+body {
+	/* position: fixed; */
+	overflow-x: hidden;
+	height: auto;
+}
+
+.jumbotron {
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.vertical-center {
+	min-height: 100%;
+	min-height: 100vh;
+	min-width: 100vw;
+	display: flex;
+	align-items: center;
+}
+
+.mainBackground {
+	background: #F5F5F5;
+}
+
+.titleText {
+	font-family: 'Orbitron', sans-serif;
+	color: orange;
+}
+
+.subtitleText {
+	color: black;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
