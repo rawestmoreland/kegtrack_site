@@ -4,6 +4,7 @@ services:
   kegtrack:
     container_name: kegtrack_site
     image: rawestmoreland/kegtrack_site:prod
+    restart: 'unless-stopped'
     ports:
       - "8080:80"
     networks:
