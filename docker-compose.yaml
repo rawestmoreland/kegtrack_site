@@ -12,6 +12,43 @@ services:
         aliases:
           - kegtrack
 
+  strapi:
+    container_name: strapi_kegtrack
+    image: rawestmoreland/kegtrack_backend:dev
+    restart: 'always'
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5431
+      - DATABASE_NAME=kegtrack
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - ./backend/app:/srv/app
+    depends_on:
+      - postgres
+    networks:
+      kegtrack_network:
+        aliases:
+          - kegtrack
+
+  postgres:
+    container_name: strapi_postgres_kegtrack
+    restart: 'always'
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: kegtrack
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "5431:5431"
+    volumes:
+      - ./backend/data:/var/lib/postgresql/data
+    networks:
+      kegtrack_network:
+        aliases:
+          - kegtrack
+
 
 networks:
   kegtrack_network:
