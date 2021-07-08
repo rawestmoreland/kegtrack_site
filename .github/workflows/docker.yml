@@ -34,6 +34,10 @@ jobs:
       - name: Docker build the site image
         run: |
           docker build . -t rawestmoreland/kegtrack_site:prod
+      - name: Docker build the backend (dev)
+        run: |
+          docker build ./backend/app -t rawestmoreland/kegtrack_backend:dev
       - name: Docker push the things
         run: |
           docker push rawestmoreland/kegtrack_site:prod
+          docker push rawestmoreland/kegtrack_backend:dev
