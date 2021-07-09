@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beers",
+  "info": {
+    "name": "beer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "beer_name": {
+      "type": "string"
+    },
+    "abv": {
+      "type": "decimal"
+    },
+    "ibu": {
+      "type": "integer"
+    },
+    "keg": {
+      "unique": true,
+      "model": "keg"
+    },
+    "user_id": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "beers"
+    },
+    "beer_volume": {
+      "type": "float"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kegs",
+  "info": {
+    "name": "keg",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "serving": {
+      "type": "boolean"
+    },
+    "keg_volume": {
+      "type": "decimal"
+    },
+    "user_id": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "kegs"
+    },
+    "tap": {
+      "via": "keg",
+      "model": "tap"
+    },
+    "keg_name": {
+      "type": "string"
+    }
+  }
+}

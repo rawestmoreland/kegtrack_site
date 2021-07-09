@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "taps",
+  "info": {
+    "name": "tap",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "psi": {
+      "type": "integer"
+    },
+    "tubing_length": {
+      "type": "float"
+    },
+    "tubing_length_unit": {
+      "type": "string"
+    },
+    "keg": {
+      "via": "tap",
+      "model": "keg"
+    },
+    "tubing_id": {
+      "type": "float",
+      "default": 0.1875
+    },
+    "tap_name": {
+      "type": "string"
+    },
+    "user_id": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "taps"
+    }
+  }
+}
