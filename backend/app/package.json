@@ -9,9 +9,6 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "optionalDependencies": {
-    "fsevents": "^2.0.7"
-  },
   "devDependencies": {},
   "dependencies": {
     "knex": "0.21.18",
