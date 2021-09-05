@@ -18,9 +18,6 @@
     "tubing_length": {
       "type": "float"
     },
-    "tubing_length_unit": {
-      "type": "string"
-    },
     "keg": {
       "via": "tap",
       "model": "keg"
@@ -36,6 +33,15 @@
       "via": "taps",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "tubing_length_unit": {
+      "type": "enumeration",
+      "enum": [
+        "feet",
+        "inches",
+        "centimeters",
+        "meters"
+      ]
     }
   }
 }
