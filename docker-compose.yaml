@@ -38,7 +38,7 @@ services:
         image: postgres:13.3
         restart: always
         volumes:
-            - ./backend/db:/var/lib/postgresql/data
+            - postgres_database:/var/lib/postgresql/data
         ports:
             - 5433:5432
         environment:
@@ -49,6 +49,10 @@ services:
             kegtrack_network:
                 aliases:
                     - kegtrack
+
+volumes:
+    postgres_database:
+        external: true
 
 networks:
     kegtrack_network:
