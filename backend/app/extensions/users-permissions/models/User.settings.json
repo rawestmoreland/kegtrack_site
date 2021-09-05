@@ -62,11 +62,10 @@
     "volume_units": {
       "type": "enumeration",
       "enum": [
-        "pints",
         "liters",
         "gallons"
       ],
-      "default": "pints",
+      "default": "gallons",
       "required": true
     },
     "beers": {
@@ -76,6 +75,21 @@
     "taps": {
       "via": "user_id",
       "collection": "tap"
+    },
+    "name_first": {
+      "type": "string"
+    },
+    "name_last": {
+      "type": "string"
+    },
+    "remaining_units": {
+      "type": "enumeration",
+      "enum": [
+        "percent",
+        "pints",
+        "liters"
+      ],
+      "default": "percent"
     },
     "kegs": {
       "via": "user_id",

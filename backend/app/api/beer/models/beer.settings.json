@@ -13,25 +13,27 @@
   "pluginOptions": {},
   "attributes": {
     "beer_name": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "abv": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 0
     },
     "ibu": {
       "type": "integer"
     },
-    "keg": {
-      "unique": true,
-      "model": "keg"
-    },
     "user_id": {
+      "via": "beers",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "beers"
+      "model": "user"
     },
     "beer_volume": {
-      "type": "float"
+      "type": "float",
+      "required": true,
+      "default": 0,
+      "min": 0
     }
   }
 }

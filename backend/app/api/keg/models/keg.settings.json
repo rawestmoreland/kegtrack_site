@@ -12,11 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "serving": {
-      "type": "boolean"
-    },
     "keg_volume": {
-      "type": "decimal"
+      "type": "float",
+      "default": 0,
+      "min": 0,
+      "required": true
     },
     "user_id": {
       "plugin": "users-permissions",
@@ -28,7 +28,29 @@
       "model": "tap"
     },
     "keg_name": {
-      "type": "string"
+      "type": "string",
+      "required": false
+    },
+    "beer_name": {
+      "type": "string",
+      "required": false,
+      "default": "Empty"
+    },
+    "beer_volume": {
+      "type": "float",
+      "default": 0,
+      "required": true
+    },
+    "abv": {
+      "type": "float",
+      "default": 0
+    },
+    "ibu": {
+      "type": "float",
+      "default": 0
+    },
+    "packaged_date": {
+      "type": "datetime"
     }
   }
 }

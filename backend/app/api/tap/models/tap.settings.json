@@ -33,9 +33,9 @@
       "type": "string"
     },
     "user_id": {
+      "via": "taps",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "taps"
+      "model": "user"
     }
   }
 }
