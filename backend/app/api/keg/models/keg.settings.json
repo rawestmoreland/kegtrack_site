@@ -27,10 +27,6 @@
       "via": "keg",
       "model": "tap"
     },
-    "keg_name": {
-      "type": "string",
-      "required": false
-    },
     "beer_name": {
       "type": "string",
       "required": false,
@@ -50,6 +46,9 @@
       "default": 0
     },
     "packaged_date": {
+      "type": "datetime"
+    },
+    "deleted": {
       "type": "datetime"
     }
   }

@@ -42,6 +42,9 @@
         "centimeters",
         "meters"
       ]
+    },
+    "deleted": {
+      "type": "datetime"
     }
   }
 }

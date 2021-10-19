@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/localized-strings",
+      "handler": "localized-strings.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/localized-strings/count",
+      "handler": "localized-strings.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/localized-strings/:id",
+      "handler": "localized-strings.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/localized-strings",
+      "handler": "localized-strings.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/localized-strings/:id",
+      "handler": "localized-strings.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/localized-strings/:id",
+      "handler": "localized-strings.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

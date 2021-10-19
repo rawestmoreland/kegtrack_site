@@ -1,16 +1,16 @@
 version: '3.1'
 
 services:
-    kegtrack:
-        container_name: kegtrack_site
-        image: rawestmoreland/kegtrack_site:prod
-        restart: 'unless-stopped'
-        ports:
-            - '8080:80'
-        networks:
-            kegtrack_network:
-                aliases:
-                    - kegtrack
+    # kegtrack:
+    #     container_name: kegtrack_site
+    #     image: rawestmoreland/kegtrack_site:prod
+    #     restart: 'unless-stopped'
+    #     ports:
+    #         - '8080:80'
+    #     networks:
+    #         kegtrack_network:
+    #             aliases:
+    #                 - kegtrack
 
     strapi:
         container_name: strapi_kegtrack
@@ -23,7 +23,7 @@ services:
             - DATABASE_USERNAME=${DATABASE_USERNAME}
             - DATABASE_PASSWORD=${DATABASE_PASSWORD}
         ports:
-            - 1338:1337
+            - 1337:1337
         volumes:
             - ./backend/app:/srv/app
         depends_on:
@@ -39,9 +39,9 @@ services:
         restart: always
         volumes:
             - ./backend/db:/var/lib/postgresql/data
-            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
         ports:
-            - 5433:5432
+            - 5432:5432
         environment:
             POSTGRES_USER: ${DATABASE_USERNAME}
             POSTGRES_PASSWORD: ${DATABASE_PASSWORD}

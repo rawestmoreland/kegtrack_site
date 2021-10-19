@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "localized_strings",
+  "info": {
+    "name": "Localized Strings"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "string": {
+      "type": "text"
+    },
+    "locale": {
+      "type": "enumeration",
+      "enum": [
+        "en",
+        "fr",
+        "es"
+      ]
+    }
+  }
+}
