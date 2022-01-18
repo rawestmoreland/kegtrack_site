@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -17,10 +17,6 @@
     },
     "tubing_length": {
       "type": "float"
-    },
-    "keg": {
-      "via": "tap",
-      "model": "keg"
     },
     "tubing_id": {
       "type": "float",
@@ -41,10 +37,15 @@
         "inches",
         "centimeters",
         "meters"
-      ]
+      ],
+      "default": "feet"
     },
     "deleted": {
       "type": "datetime"
+    },
+    "keg": {
+      "via": "tap",
+      "model": "keg"
     }
   }
 }

@@ -8,7 +8,7 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -22,10 +22,6 @@
       "plugin": "users-permissions",
       "model": "user",
       "via": "kegs"
-    },
-    "tap": {
-      "via": "keg",
-      "model": "tap"
     },
     "beer_name": {
       "type": "string",
@@ -50,6 +46,10 @@
     },
     "deleted": {
       "type": "datetime"
+    },
+    "tap": {
+      "via": "keg",
+      "model": "tap"
     }
   }
 }

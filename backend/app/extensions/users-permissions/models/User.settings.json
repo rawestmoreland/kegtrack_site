@@ -68,10 +68,6 @@
       "default": "gallons",
       "required": true
     },
-    "beers": {
-      "via": "user_id",
-      "collection": "beer"
-    },
     "taps": {
       "via": "user_id",
       "collection": "tap"
