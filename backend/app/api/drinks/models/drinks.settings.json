@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_user": {
-      "plugin": "users-permissions",
-      "model": "user"
-    },
     "quantity": {
       "type": "float",
       "required": true
@@ -57,10 +53,15 @@
     "pour_quality": {
       "type": "enumeration",
       "enum": [
+        "good",
         "foam",
         "short",
         "long"
       ]
+    },
+    "user_id": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
