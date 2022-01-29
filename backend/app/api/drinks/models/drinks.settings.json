@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "users_permissions_user": {
-      "plugin": "users-permissions",
-      "model": "user"
-    },
     "quantity": {
       "type": "float",
       "required": true
@@ -48,19 +44,24 @@
     "psi": {
       "type": "float"
     },
-    "line_length": {
+    "tubing_length": {
       "type": "float"
     },
-    "line_inner_diameter": {
+    "tubing_id": {
       "type": "float"
     },
     "pour_quality": {
       "type": "enumeration",
       "enum": [
+        "good",
         "foam",
         "short",
         "long"
       ]
+    },
+    "user_id": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
