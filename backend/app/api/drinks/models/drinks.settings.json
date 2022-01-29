@@ -44,10 +44,10 @@
     "psi": {
       "type": "float"
     },
-    "line_length": {
+    "tubing_length": {
       "type": "float"
     },
-    "line_inner_diameter": {
+    "tubing_id": {
       "type": "float"
     },
     "pour_quality": {
