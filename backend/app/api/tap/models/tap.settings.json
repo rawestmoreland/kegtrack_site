@@ -32,12 +32,7 @@
     },
     "tubing_length_unit": {
       "type": "enumeration",
-      "enum": [
-        "feet",
-        "inches",
-        "centimeters",
-        "meters"
-      ],
+      "enum": ["feet", "inches", "centimeters", "meters"],
       "default": "feet"
     },
     "deleted": {
@@ -49,8 +44,7 @@
     },
     "calibration_factor": {
       "type": "float",
-      "default": 0.059,
-      "required": true
+      "default": 0.059
     }
   }
 }
