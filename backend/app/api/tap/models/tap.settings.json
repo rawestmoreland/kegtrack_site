@@ -46,6 +46,11 @@
     "keg": {
       "via": "tap",
       "model": "keg"
+    },
+    "calibration_factor": {
+      "type": "float",
+      "default": 0.059,
+      "required": true
     }
   }
 }
