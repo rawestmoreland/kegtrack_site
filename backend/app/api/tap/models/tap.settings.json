@@ -45,6 +45,15 @@
     "calibration_factor": {
       "type": "float",
       "default": 0.059
+    },
+    "estimated_calibration_factor": {
+      "type": "float",
+      "default": 0.059
+    },
+    "calibration_factor_type": {
+      "type": "enumeration",
+      "enum": ["calibrated", "estimated"],
+      "default": "estimated"
     }
   }
 }
