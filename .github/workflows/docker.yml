@@ -2,13 +2,13 @@
 
 name: Kegtrack Site Docker Image
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Docker login
         env:
           DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -34,10 +34,6 @@ jobs:
       - name: Docker build the site image
         run: |
           docker build . -t rawestmoreland/kegtrack_site:prod
-      - name: Docker build the backend (dev)
-        run: |
-          docker build ./backend/app -t rawestmoreland/kegtrack_backend:dev
       - name: Docker push the things
         run: |
           docker push rawestmoreland/kegtrack_site:prod
-          docker push rawestmoreland/kegtrack_backend:dev
