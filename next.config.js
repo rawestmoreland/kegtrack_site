@@ -6,7 +6,6 @@ const nextConfig = {
   },
   async headers() {
     const headers = [];
-    console.log({ context: process.env.CONTEXT });
     if (process.env.CONTEXT !== 'production') {
       headers.push({
         headers: [
