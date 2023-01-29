@@ -1,6 +1,7 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import { Logo } from '@/components/Logo'
+import { Logo } from '@/components/Logo';
+import AlertBox, { AlertVariants } from './AlertBox';
 
 function BackgroundIllustration(props) {
   return (
@@ -16,16 +17,13 @@ function BackgroundIllustration(props) {
       <circle cx={545} cy={545} r="416.5" />
       <circle cx={545} cy={545} r="352.5" />
     </svg>
-  )
+  );
 }
 
-export function AuthLayout({ title, subtitle, children }) {
+export function AuthLayout({ title, subtitle, children, error }) {
   return (
     <main className="flex min-h-full overflow-hidden pt-16 sm:py-28">
       <div className="mx-auto flex w-full max-w-2xl flex-col px-4 sm:px-6">
-        <Link href="/" aria-label="Home">
-          <Logo className="mx-auto h-10 w-auto" />
-        </Link>
         <div className="relative mt-12 sm:mt-16">
           <BackgroundIllustration
             width="1090"
@@ -44,5 +42,5 @@ export function AuthLayout({ title, subtitle, children }) {
         </div>
       </div>
     </main>
-  )
+  );
 }
