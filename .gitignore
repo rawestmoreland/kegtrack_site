@@ -1,3 +1,2 @@
 .env
-*.dump
-init.sql
+node_modules
