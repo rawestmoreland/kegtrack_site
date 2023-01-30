@@ -2,9 +2,3 @@
 	base = "."
 	publish = ".next"
 	command = "yarn build"
-
-[context.deploy-preview]
-  command = "yarn noIndex"
-
-[context.branch-deploy]
-  command = "yarn noIndex"
