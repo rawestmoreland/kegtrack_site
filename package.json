@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "noIndex": "npm run build && echo 'User-agent: *\nDisallow: /' > dist/robots.txt",
+    "noIndex": "yarn build && echo 'User-agent: *\nDisallow: /' > dist/robots.txt",
     "start": "next start",
     "lint": "next lint"
   },
