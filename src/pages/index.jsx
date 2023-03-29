@@ -21,7 +21,7 @@ export default function Home() {
         />
       </Head>
       <Header />
-      <main>
+      <main className="relative h-full">
         <Hero />
         {/* <PrimaryFeatures />
         <SecondaryFeatures />

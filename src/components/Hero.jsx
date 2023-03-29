@@ -341,12 +341,12 @@ export function Hero() {
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8 lg:gap-y-20">
           <div className="relative z-10 mx-auto max-w-2xl lg:col-span-7 lg:max-w-none lg:pt-6 xl:col-span-6">
             <h1 className="text-4xl font-medium tracking-tight text-gray-900">
-              Monitor you keg volumes.
+              Monitor your keg volumes.
             </h1>
             <p className="mt-6 text-lg text-gray-600">
               Always know how much you have left in your kegs. No need for
-              expensive hardware. All you need is your smartphone and the
-              KegTrack app.
+              expensive hardware. All you need is your phone and the KegTrack
+              app.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-4">
               <AppStoreLink />

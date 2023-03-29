@@ -47,7 +47,7 @@ function MobileNavLink({ children, ...props }) {
 
 export function Header() {
   return (
-    <header>
+    <header className="sticky top-0 z-50 bg-gray-50">
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
@@ -64,7 +64,7 @@ export function Header() {
             </div>
           </div>
           <div className="flex items-center gap-6">
-            <Popover className="lg:hidden">
+            {/* <Popover className="lg:hidden">
               {({ open }) => (
                 <>
                   <Popover.Button
@@ -114,19 +114,19 @@ export function Header() {
                             </MobileNavLink>
                             <MobileNavLink href="#faqs">FAQs</MobileNavLink>
                           </div>
-                          {/* <div className="mt-8 flex flex-col gap-4">
+                          <div className="mt-8 flex flex-col gap-4">
                             <Button href="/login" variant="outline">
                               Log in
                             </Button>
                             <Button href="#">Download the app</Button>
-                          </div> */}
+                          </div>
                         </Popover.Panel>
                       </>
                     )}
                   </AnimatePresence>
                 </>
               )}
-            </Popover>
+            </Popover> */}
             {/* <Button href="/login" variant="outline" className="hidden lg:block">
               Log in
             </Button> */}
