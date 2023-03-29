@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import { Popover } from '@headlessui/react'
-import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link';
+import Image from 'next/image';
+import { Popover } from '@headlessui/react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
-import { NavLinks } from '@/components/NavLinks'
+import { Button } from '@/components/Button';
+import { Container } from '@/components/Container';
+import { NavLinks } from '@/components/NavLinks';
 
 function MenuIcon(props) {
   return (
@@ -17,7 +17,7 @@ function MenuIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 function ChevronUpIcon(props) {
@@ -30,7 +30,7 @@ function ChevronUpIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }
 
 function MobileNavLink({ children, ...props }) {
@@ -42,7 +42,7 @@ function MobileNavLink({ children, ...props }) {
     >
       {children}
     </Popover.Button>
-  )
+  );
 }
 
 export function Header() {
@@ -51,8 +51,13 @@ export function Header() {
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10 flex items-center gap-16">
-            <Link href="/" aria-label="Home">
-              <Logo className="h-10 w-auto" />
+            <Link
+              className="flex items-center gap-4 text-2xl font-bold"
+              href="/"
+              aria-label="Home"
+            >
+              <Image src="/images/beer-mugs.png" height={50} width={50} />
+              KegTrack
             </Link>
             <div className="hidden lg:flex lg:gap-10">
               <NavLinks />
@@ -109,12 +114,12 @@ export function Header() {
                             </MobileNavLink>
                             <MobileNavLink href="#faqs">FAQs</MobileNavLink>
                           </div>
-                          <div className="mt-8 flex flex-col gap-4">
+                          {/* <div className="mt-8 flex flex-col gap-4">
                             <Button href="/login" variant="outline">
                               Log in
                             </Button>
                             <Button href="#">Download the app</Button>
-                          </div>
+                          </div> */}
                         </Popover.Panel>
                       </>
                     )}
@@ -122,15 +127,18 @@ export function Header() {
                 </>
               )}
             </Popover>
-            <Button href="/login" variant="outline" className="hidden lg:block">
+            {/* <Button href="/login" variant="outline" className="hidden lg:block">
               Log in
-            </Button>
-            <Button href="#" className="hidden lg:block">
+            </Button> */}
+            <Button
+              href="https://apps.apple.com/us/app/keg-track/id1458783381"
+              className="hidden lg:block"
+            >
               Download
             </Button>
           </div>
         </Container>
       </nav>
     </header>
-  )
+  );
 }

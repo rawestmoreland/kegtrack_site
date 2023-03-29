@@ -1,10 +1,10 @@
-import Link from 'next/link'
-import clsx from 'clsx'
+import Link from 'next/link';
+import clsx from 'clsx';
 
 export function AppStoreLink({ color = 'black' }) {
   return (
     <Link
-      href="#"
+      href="https://apps.apple.com/us/app/keg-track/id1458783381"
       aria-label="Download on the App Store"
       className={clsx(
         'rounded-lg transition-colors',
@@ -20,5 +20,5 @@ export function AppStoreLink({ color = 'black' }) {
         />
       </svg>
     </Link>
-  )
+  );
 }

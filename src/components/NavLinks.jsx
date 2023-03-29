@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import Link from 'next/link'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react';
+import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export function NavLinks() {
-  let [hoveredIndex, setHoveredIndex] = useState(null)
+  let [hoveredIndex, setHoveredIndex] = useState(null);
 
   return [
-    ['Features', '#features'],
-    ['Reviews', '#reviews'],
-    ['Pricing', '#pricing'],
-    ['FAQs', '#faqs'],
+    // ['Features', '#features'],
+    // ['Reviews', '#reviews'],
+    // ['Pricing', '#pricing'],
+    // ['FAQs', '#faqs'],
   ].map(([label, href], index) => (
     <Link
       key={label}
@@ -34,5 +34,5 @@ export function NavLinks() {
       </AnimatePresence>
       <span className="relative z-10">{label}</span>
     </Link>
-  ))
+  ));
 }
