@@ -65,7 +65,7 @@ export default function PassReset() {
   return (
     <>
       <Head>
-        <title>Password Recorvery - KegTrack</title>
+        <title>Password Recovery - KegTrack</title>
       </Head>
       <AuthLayout
         title="Reset Your KegTrack Password"
