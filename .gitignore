@@ -3,3 +3,4 @@
 *.dump
 init.sql
 node_modules
+.env.*

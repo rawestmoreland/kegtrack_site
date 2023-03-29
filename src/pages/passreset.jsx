@@ -36,11 +36,14 @@ export default function PassReset() {
     setSubmitted();
     setSubmitting(true);
     await axios
-      .post(`http://localhost:1337/api/auth/reset-password`, {
-        code: query.code,
-        password: data.password,
-        passwordConfirmation: data.confirmPassword,
-      })
+      .post(
+        `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/reset-password`,
+        {
+          code: query.code,
+          password: data.password,
+          passwordConfirmation: data.confirmPassword,
+        }
+      )
       .then(() => {
         reset();
         router.replace('/passreset', undefined, { shallow: true });
