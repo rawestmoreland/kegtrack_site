@@ -16,7 +16,9 @@ export default function Page() {
       <Header />
       <main className="relative h-full flex-1 overflow-y-auto">
         <div className="mt-28 flex w-full flex-col items-center justify-center gap-4">
-          <h2 className="text-3xl font-bold">Your email has been confirmed.</h2>
+          <h2 className="text-center text-3xl font-bold">
+            Your email has been confirmed.
+          </h2>
           <span className="text-xl font-semibold">
             Return to the KegTrack App and enjoy!
           </span>
