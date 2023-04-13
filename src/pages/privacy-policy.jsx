@@ -71,7 +71,7 @@ export default function Page() {
       </Head>
       <Header />
       <main
-        className="mb-10 flex-1"
+        className="container mx-auto mb-10 flex-1 px-6"
         dangerouslySetInnerHTML={{ __html: myHtml }}
       />
     </div>
