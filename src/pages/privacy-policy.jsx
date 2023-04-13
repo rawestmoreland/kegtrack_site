@@ -71,10 +71,9 @@ export default function Page() {
       </Head>
       <Header />
       <main
-        className="mb-10 flex-1 overflow-y-auto"
+        className="mb-10 flex-1"
         dangerouslySetInnerHTML={{ __html: myHtml }}
       />
-      <Footer />
     </div>
   );
 }
