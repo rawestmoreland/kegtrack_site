@@ -61,7 +61,7 @@ word-break: break-word !important;
 
 export default function Page() {
   return (
-    <>
+    <div className="flex h-screen flex-col">
       <Head>
         <title>KegTrack - Always know what's left.</title>
         <meta
@@ -71,10 +71,10 @@ export default function Page() {
       </Head>
       <Header />
       <main
-        className="relative h-full flex-1 overflow-y-auto"
+        className="mb-10 flex-1 overflow-y-auto"
         dangerouslySetInnerHTML={{ __html: myHtml }}
-      ></main>
+      />
       <Footer />
-    </>
+    </div>
   );
 }

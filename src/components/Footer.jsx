@@ -24,9 +24,9 @@ export function Footer() {
   return (
     <footer className="border-t border-gray-200">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-y-12 pt-16 pb-6 lg:flex-row lg:items-center lg:py-16">
+        <div className="hidden flex-col items-start justify-between gap-y-12 pt-16 pb-6 md:flex lg:flex-row lg:items-center lg:py-16">
           <div>
-            <div className="flex items-center text-gray-900">
+            <div className="hidden items-center text-gray-900 md:flex">
               <Image src="/images/beer-mugs.png" height={50} width={50} />
               <div className="ml-4">
                 <p className="text-base font-semibold">KegTrack</p>

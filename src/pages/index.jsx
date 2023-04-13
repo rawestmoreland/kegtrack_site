@@ -12,7 +12,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures';
 
 export default function Home() {
   return (
-    <>
+    <div className="flex h-screen flex-col">
       <Head>
         <title>KegTrack - Always know what's left.</title>
         <meta
@@ -21,7 +21,7 @@ export default function Home() {
         />
       </Head>
       <Header />
-      <main className="relative h-full">
+      <main className="flex-1 overflow-y-auto">
         <Hero />
         {/* <PrimaryFeatures />
         <SecondaryFeatures />
@@ -31,6 +31,6 @@ export default function Home() {
         <Faqs /> */}
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
