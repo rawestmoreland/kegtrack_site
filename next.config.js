@@ -19,14 +19,6 @@ const nextConfig = {
     }
     return headers;
   },
-  async rewrites() {
-    return [
-      {
-        source: '/privacy-policy',
-        destination: '/html/privacy.html',
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
