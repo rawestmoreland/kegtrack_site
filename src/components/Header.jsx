@@ -130,12 +130,12 @@ export function Header() {
             {/* <Button href="/login" variant="outline" className="hidden lg:block">
               Log in
             </Button> */}
-            <Button
+            {/* <Button
               href="https://apps.apple.com/us/app/keg-track/id1458783381"
               className="hidden lg:block"
             >
               Download
-            </Button>
+            </Button> */}
           </div>
         </Container>
       </nav>
