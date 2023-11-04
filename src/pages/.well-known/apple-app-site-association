@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "KK7SBV699A.com.example.kegminder"
+        ],
+        "components": [
+          {
+            "/": "/signin/*",
+            "comment": "Matches any URL with a path that starts with /signin/."
+          }
+        ]
+      }
+    ]
+  }
+}
