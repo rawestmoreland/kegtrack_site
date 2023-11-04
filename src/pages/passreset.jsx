@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -15,11 +15,24 @@ export default function PassReset() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState();
+  const [accessToken, setAccessToken] = useState();
 
   const password = useRef({});
 
   const router = useRouter();
-  const query = router.query;
+
+  useEffect(() => {
+    if (accessToken) return;
+    const hash = router.asPath.split('#')[1];
+
+    const parsedHash = new URLSearchParams(hash);
+
+    const token = parsedHash.get('access_token');
+
+    console.log(token);
+
+    setAccessToken(token);
+  }, []);
 
   const {
     handleSubmit,
@@ -36,14 +49,17 @@ export default function PassReset() {
     setSubmitted();
     setSubmitting(true);
     await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/reset-password`,
-        {
-          code: query.code,
+      .request({
+        method: 'PUT',
+        url: `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/user?apikey=${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+        data: {
           password: data.password,
-          passwordConfirmation: data.confirmPassword,
-        }
-      )
+        },
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'content-type': 'application/json',
+        },
+      })
       .then(() => {
         reset();
         router.replace('/passreset', undefined, { shallow: true });
@@ -79,7 +95,7 @@ export default function PassReset() {
               rules={{ required: true }}
               render={({ field }) => (
                 <TextField
-                  disabled={!query.code || submitting}
+                  disabled={!accessToken || submitting}
                   label="New Password"
                   id="password"
                   name="password"
@@ -96,7 +112,7 @@ export default function PassReset() {
               rules={{ required: true }}
               render={({ field }) => (
                 <TextField
-                  disabled={!query.code || submitting}
+                  disabled={!accessToken || submitting}
                   label="Confirm Password"
                   id="confirmPassword"
                   name="confirmPassword"
@@ -109,7 +125,7 @@ export default function PassReset() {
             />
           </div>
           <Button
-            disabled={!query.code || submitting}
+            disabled={!accessToken || submitting}
             type="submit"
             color="cyan"
             className="mt-8 w-full"
