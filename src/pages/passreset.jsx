@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 import { AuthLayout } from '@/components/AuthLayout';
 import { Button } from '@/components/Button';
