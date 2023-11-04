@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import { AuthLayout } from '@/components/AuthLayout';
 import { Button } from '@/components/Button';
@@ -11,13 +12,22 @@ import { useForm, Controller } from 'react-hook-form';
 import axios from 'axios';
 import AlertBox, { AlertVariants } from '@/components/AlertBox';
 
-export default function PassReset() {
+export const getServerSideProps = async ({ req, res }) => {
+  const userAgent = req.headers['user-agent'];
+  const isMobileView = Boolean(
+    userAgent?.match(
+      /Android|Blackberry|iPhone|iPad|iPod|Opera Mini|IEMobile\WPDesktop/i
+    )
+  );
+
+  return { props: { isMobileView } };
+};
+
+export default function PassReset({ isMobileView }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState();
   const [accessToken, setAccessToken] = useState();
-
-  const password = useRef({});
 
   const router = useRouter();
 
@@ -28,8 +38,6 @@ export default function PassReset() {
     const parsedHash = new URLSearchParams(hash);
 
     const token = parsedHash.get('access_token');
-
-    console.log(token);
 
     setAccessToken(token);
   }, []);
@@ -42,7 +50,10 @@ export default function PassReset() {
     formState: { errors },
   } = useForm({ defaultValues: { password: '', confirmPassword: '' } });
 
-  password.current = watch('password');
+  const password = useRef({});
+  const passwordConfirm = useRef();
+  passwordConfirm.current = watch('confirmPassword', '');
+  password.current = watch('password', '');
 
   const submitForm = async (data) => {
     setSubmitError();
@@ -87,63 +98,76 @@ export default function PassReset() {
         title="Reset Your KegTrack Password"
         subtitle={<>Submit your new password below</>}
       >
-        <form onSubmit={handleSubmit(submitForm)}>
-          <div className="space-y-6">
-            <Controller
-              name="password"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  disabled={!accessToken || submitting}
-                  label="New Password"
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="password"
-                  onChange={field.onChange}
-                  value={field.value}
-                />
-              )}
-            />
-            <Controller
-              name="confirmPassword"
-              control={control}
-              rules={{ required: true }}
-              render={({ field }) => (
-                <TextField
-                  disabled={!accessToken || submitting}
-                  label="Confirm Password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  autoComplete="confirmPassword"
-                  onChange={field.onChange}
-                  value={field.value}
-                />
-              )}
-            />
-          </div>
-          <Button
-            disabled={!accessToken || submitting}
-            type="submit"
-            color="cyan"
-            className="mt-8 w-full"
-          >
-            Reset Your Password
-          </Button>
-        </form>
+        {!submitted && (
+          <form onSubmit={handleSubmit(submitForm)}>
+            <div className="space-y-6">
+              <Controller
+                name="password"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <TextField
+                    disabled={!accessToken || submitting}
+                    label="New Password"
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="password"
+                    onChange={field.onChange}
+                    value={field.value}
+                  />
+                )}
+              />
+              <Controller
+                name="confirmPassword"
+                control={control}
+                rules={{
+                  required: true,
+                  validate: (value) =>
+                    value === password.current || 'The passwords do not match',
+                }}
+                render={({ field }) => (
+                  <TextField
+                    disabled={!accessToken || submitting}
+                    label="Confirm Password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    autoComplete="confirmPassword"
+                    onChange={field.onChange}
+                    value={field.value}
+                  />
+                )}
+              />
+            </div>
+            <Button
+              disabled={!accessToken || submitting}
+              type="submit"
+              color="cyan"
+              className="mt-8 w-full"
+            >
+              Reset Your Password
+            </Button>
+          </form>
+        )}
+
         {submitError && (
           <div className="mt-4">
             <AlertBox variant={AlertVariants.error}>{submitError}</AlertBox>
           </div>
         )}
         {submitted && (
-          <div className="mt-4">
+          <div className="mt-4 flex flex-col items-center gap-4">
             <AlertBox variant={AlertVariants.success}>
               Your password has been reset. Proceed to the KegTrack app to sign
               in with your new password.
             </AlertBox>
+
+            {isMobileView && (
+              <Button color="cyan" href="/signin" className="w-full">
+                Return to the app
+              </Button>
+            )}
           </div>
         )}
       </AuthLayout>
