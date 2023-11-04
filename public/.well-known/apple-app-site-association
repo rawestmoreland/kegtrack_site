@@ -13,5 +13,15 @@
         ]
       }
     ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "KK7SBV699A.com.example.kegminder"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "KK7SBV699A.com.example.kegminder"
+    ]
   }
 }
