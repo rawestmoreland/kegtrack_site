@@ -2,8 +2,24 @@ import Head from 'next/head';
 
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { Button } from '@/components/Button';
 
-export default function Page() {
+export const getServerSideProps = async ({ req }) => {
+  const userAgent = req.headers['user-agent'];
+  const isMobileView = Boolean(
+    userAgent?.match(
+      /Android|Blackberry|iPhone|iPad|iPod|Opera Mini|IEMobile\WPDesktop/i
+    )
+  );
+
+  return {
+    props: {
+      isMobileView,
+    },
+  };
+};
+
+export default function Page({ isMobileView }) {
   return (
     <>
       <Head>
@@ -22,6 +38,11 @@ export default function Page() {
           <span className="text-xl font-semibold">
             Return to the KegTrack App and enjoy!
           </span>
+          {isMobileView && (
+            <Button color="cyan" href="/signin">
+              Take me back to the app
+            </Button>
+          )}
         </div>
         {/* <PrimaryFeatures />
           <SecondaryFeatures />

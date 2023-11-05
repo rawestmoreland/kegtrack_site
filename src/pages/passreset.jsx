@@ -11,7 +11,7 @@ import { useForm, Controller } from 'react-hook-form';
 import axios from 'axios';
 import AlertBox, { AlertVariants } from '@/components/AlertBox';
 
-export const getServerSideProps = async ({ req, res }) => {
+export const getServerSideProps = async ({ req }) => {
   const userAgent = req.headers['user-agent'];
   const isMobileView = Boolean(
     userAgent?.match(
