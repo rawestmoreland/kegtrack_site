@@ -4,17 +4,17 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
-  async redirects() {
-    return [
-      {
-        source: '/.well-known/:file',
-        destination: '/api/.well-known/:file',
-        permanent: false,
-      },
-    ];
-  },
   async headers() {
     const headers = [];
+    headers.push({
+      source: '/.well-known/apple-app-site-association',
+      headers: [
+        {
+          key: 'Content-Type',
+          value: 'application/json',
+        },
+      ],
+    });
     if (process.env.CONTEXT !== 'production') {
       headers.push({
         headers: [
