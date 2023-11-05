@@ -5,7 +5,7 @@
       {
         "appID": "KK7SBV699A.com.example.kegminder",
         "paths": [
-          "/signin/*",
+          "/signin",
           "*"
         ]
       }
