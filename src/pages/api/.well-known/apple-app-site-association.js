@@ -1,22 +1,22 @@
+const BUNDLE_ID = 'com.example.kegminder';
+const TEAM_ID = 'KK7SBV699A';
+
 const association = {
   applinks: {
+    apps: [],
     details: [
       {
-        appIDs: ['KK7SBV699A.com.example.kegminder'],
-        components: [
-          {
-            '/': '/signin/*',
-            comment: 'Matches any URL with a path that starts with /signin/.',
-          },
-        ],
+        appID: `${TEAM_ID}.${BUNDLE_ID}`,
+        // all paths, except for marketing pages
+        paths: ['/signin/*', '*'],
       },
     ],
   },
   activitycontinuation: {
-    apps: ['KK7SBV699A.com.example.kegminder'],
+    apps: [`${TEAM_ID}.${BUNDLE_ID}`],
   },
   webcredentials: {
-    apps: ['KK7SBV699A.com.example.kegminder'],
+    apps: [`${TEAM_ID}.${BUNDLE_ID}`],
   },
 };
 
