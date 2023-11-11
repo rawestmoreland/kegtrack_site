@@ -162,11 +162,11 @@ export default function PassReset({ isMobileView }) {
               in with your new password.
             </AlertBox>
 
-            {isMobileView && (
+            {/* {isMobileView && (
               <Button color="cyan" href="/signin" className="w-full">
                 Return to the app
               </Button>
-            )}
+            )} */}
           </div>
         )}
       </AuthLayout>

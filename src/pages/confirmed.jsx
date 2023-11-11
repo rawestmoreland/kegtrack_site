@@ -38,11 +38,11 @@ export default function Page({ isMobileView }) {
           <span className="text-xl font-semibold">
             Return to the KegTrack App and enjoy!
           </span>
-          {isMobileView && (
+          {/* {isMobileView && (
             <Button color="cyan" href="/signin">
               Take me back to the app
             </Button>
-          )}
+          )} */}
         </div>
         {/* <PrimaryFeatures />
           <SecondaryFeatures />
