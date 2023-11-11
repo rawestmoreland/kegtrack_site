@@ -1,15 +1,17 @@
 const association = {
   applinks: {
     apps: [],
-    details: {
-      appIDs: ['KK7SBV699A.com.example.kegminder'],
-      components: [
-        {
-          '/': '/signin/*',
-          comment: 'Matches any URL whose path starts with /signin',
-        },
-      ],
-    },
+    details: [
+      {
+        appIDs: ['KK7SBV699A.com.example.kegminder'],
+        components: [
+          {
+            '/': '/signin/*',
+            comment: 'Matches any URL whose path starts with /signin',
+          },
+        ],
+      },
+    ],
   },
   activitycontinuation: {
     apps: ['KK7SBV699A.com.example.kegminder'],
