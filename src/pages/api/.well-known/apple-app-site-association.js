@@ -2,7 +2,7 @@ const association = {
   applinks: {
     apps: [],
     details: {
-      appIds: ['KK7SBV699A.com.example.kegminder'],
+      appIDs: ['KK7SBV699A.com.example.kegminder'],
       components: [
         {
           '/': '/signin/*',
