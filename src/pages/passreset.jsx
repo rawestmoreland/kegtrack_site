@@ -23,6 +23,7 @@ export const getServerSideProps = async ({ req }) => {
 };
 
 export default function PassReset({ isMobileView }) {
+  const [hasError, setHasError] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState();
@@ -36,7 +37,9 @@ export default function PassReset({ isMobileView }) {
     const hash = new URLSearchParams(fragment);
 
     const token = hash.get('access_token');
+    const error = hash.get('error');
 
+    setHasError(!!error);
     setAccessToken(token);
   }, []);
 
@@ -152,6 +155,13 @@ export default function PassReset({ isMobileView }) {
         {submitError && (
           <div className="mt-4">
             <AlertBox variant={AlertVariants.error}>{submitError}</AlertBox>
+          </div>
+        )}
+        {hasError && (
+          <div className="mt-4">
+            <AlertBox variant={AlertVariants.error}>
+              Your token expired. Please request another password reset.
+            </AlertBox>
           </div>
         )}
         {submitted && (
