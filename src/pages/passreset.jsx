@@ -32,11 +32,10 @@ export default function PassReset({ isMobileView }) {
 
   useEffect(() => {
     if (accessToken) return;
-    const hash = router.asPath.split('#')[1];
+    const fragment = window.location.hash.substring(1);
+    const hash = new URLSearchParams(fragment);
 
-    const parsedHash = new URLSearchParams(hash);
-
-    const token = parsedHash.get('access_token');
+    const token = hash.get('access_token');
 
     setAccessToken(token);
   }, []);
