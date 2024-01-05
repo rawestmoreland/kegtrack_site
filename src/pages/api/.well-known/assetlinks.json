@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.smallbatchbru.kegminder",
+      "sha256_cert_fingerprints": [
+        "B1:07:15:F1:C4:1B:4A:73:F6:EC:7C:FC:B8:3D:A3:D9:34:88:35:27:C0:D9:D1:91:A3:2B:5D:70:D1:AC:35:CB"
+      ]
+    }
+  }
+]
